@@ -1,0 +1,11 @@
+<div class="card-placement" *ngFor="let hotel of response">
+  <div class="card">
+    <img src='{{hotel.image}}' alt="Avatar" style="width:100%">
+    <div>
+      <h4><b>{{hotel.name}}</b></h4>
+      <p>Good reviews: {{hotel.positiveReviews}}</p>
+      <button (click)= hotelDetails(hotel)>Show Details</button>
+    </div>
+  </div>
+</div>
+

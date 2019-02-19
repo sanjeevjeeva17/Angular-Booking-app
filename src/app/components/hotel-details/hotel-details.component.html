@@ -1,0 +1,43 @@
+<div class="col--large ">
+
+  <div class="col--medium">
+    <img src='{{hotelDetails.image}}' alt="Avatar" style="width:100%">
+  </div>
+  <div class="col--medium">
+    <h2>{{hotelDetails.name}}</h2>
+    <p>{{hotelDetails.description}}</p>
+    <p> Good reviews :{{hotelDetails.positiveReviews}}</p>
+    <form [formGroup]="userInformation" class="form-style">
+      <label>Name:</label><input type="text" formControlName="name">
+      <span class="error " *ngIf="userInformation.controls.name.invalid &&
+        userInformation.controls.name.touched">Name required</span>
+      <label>Number:</label><input type="text" formControlName="phoneNumber">
+      <span class="error" *ngIf="userInformation.controls.phoneNumber.invalid &&
+      userInformation.controls.phoneNumber.touched">Number required</span>
+    </form>
+    <button (click)="bookHotel()">Book Hotel</button>
+
+    <p>{{this.message}}</p>
+  </div>
+</div>
+
+<!-- modal overlay -->
+<div id="myModal" class="modal" *ngIf="modalOverlay">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModalOverlay()">&times;</span>
+    <h2>Please login to Book the Hotel</h2>
+    <p class="error">{{message}}</p>
+    <form [formGroup]="loginDetails" class="form-style">
+      <label> FirstName:</label> <input type="text" formControlName="userFirstName">
+      <span class="error" *ngIf="loginDetails.controls['userFirstName'].invalid &&
+      loginDetails.controls['userFirstName'].touched"> first name required</span>
+      <label> LastName: </label><input type="text" formControlName="userLastName">
+      <span class="error" *ngIf="loginDetails.controls['userLastName'].invalid &&
+        loginDetails.controls['userLastName'].touched"> last name required</span>
+      <button (click)="loginUser()">Login</button>
+    </form>
+  </div>
+
+</div>

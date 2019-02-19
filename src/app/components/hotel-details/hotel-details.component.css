@@ -1,0 +1,8 @@
+.col--large {
+  display: inline-flex;
+  width: 100%;
+}
+.col--medium {
+  width: 40%;
+  margin: 5px;
+}
